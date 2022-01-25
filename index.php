@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>吃掉吹哥</title>
-    <meta itemprop="name" content="吃掉吹哥" />
+    <title>吃掉阿吹</title>
+    <meta itemprop="name" content="吃掉阿吹" />
     <meta itemprop="description" content="新概念加作业游戏" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
@@ -12,12 +12,6 @@
     <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script src="https://passport.cnblogs.com/scripts/jsencrypt.min.js"></script>
-    <?php
-    session_start();
-    $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'), 0, 8);
-    $_SESSION['t'] = $str;
-    echo "<script>var tj='" . $str . "'</script>";
-    ?>
     <script src="./static/index.js"></script>
 </head>
 
@@ -28,7 +22,6 @@
             <div id="GameScoreLayer-score" style="margin:10px 0;">得分</div>
             <div id="GameScoreLayer-bast">最佳</div>
             <button type="button" class="btn btn-secondary btn-lg" onclick="replayBtn()">重来</button>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="goRank();">排行</button>
             <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/arcxingye/EatKano'">开源</button>
         </div>
     </div>
@@ -44,18 +37,19 @@
                 </div>
                 <br />
                 <div id="btn_group" style="display: block;">
-                    <button type="button" id="ready-btn" class="btn btn-primary loading btn-lg">开始加作业</button>
+                    <button type="button" id="ready-btn" class="btn btn-primary loading btn-lg">点击开始</button>
                     <br /><br />
                     <button type="button" class="btn btn-secondary btn-lg" onclick="show_setting()">游戏设置</button>
                 </div>
                 <div id="setting" style="display: none;">
-                    <div class="input-group mb-3">
+                    <!-- 此为无排行榜版本，去除名字留言 -->
+                    <div class="input-group mb-3" style="display: none;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">名字</span>
                         </div>
                         <input type="text" id="username" class="form-control" maxlength=8 placeholder="用于纪录排行(特殊字符会被过滤)">
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" style="display: none;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">留言</span>
                         </div>
